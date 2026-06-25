@@ -3,7 +3,7 @@
 
 Scenario Based
 
-Pod in CrashLoopBackOff 
+**Pod in CrashLoopBackOff **
 A pod is continuously restarting. What will you do?
 
 
@@ -22,8 +22,8 @@ o	OOMKilled → increase memory
 	I also check if recent deployment caused it and consider rollback.
 
 
-
-Rolling Deployment Failure
+  
+**Rolling Deployment Failure**
 New deployment failed. How do you handle?
 
 •	Check rollout status: “kubectl rollout status deployment <name>”
@@ -34,8 +34,8 @@ o	Config issue
 
 	I ensure readiness probes prevent bad pods from serving traffic.”
 
-
-Deployment Stuck in Pending State 
+  
+**Deployment Stuck in Pending State** 
 Pods are not getting scheduled.
 
 •	Check: “kubectl describe pod”
@@ -45,8 +45,8 @@ Common reasons:
 •	Taints without tolerations
 
 
-
-Zero Downtime Deployment Strategy
+  
+**Zero Downtime Deployment Strategy**
 How do you ensure zero downtime?
 Use rolling updates
 •	Configure:
@@ -55,8 +55,8 @@ o	maxSurge=1
 •	Use readiness probes
 Advanced: Blue-Green or Canary deployments
 
-
-CICD pipeline passed, but production still has old code.
+  
+**CICD pipeline passed, but production still has old code.**
 
 •	Check pipeline logs: Did deploy stage actually run?
 •	Check deploy script: Which environment variable is set?
@@ -70,8 +70,8 @@ o	Deployment pulled latest but latest was not updated. Hence, always use specifi
 •	Blue-Green switch missed: New version deployed but traffic not switched. Check load balancer listener rules.
 
 
-
-High Memory Usage in Pods
+  
+**High Memory Usage in Pods**
 Pods are getting killed due to memory.
 
 •	Check: kubectl top pod
@@ -81,8 +81,8 @@ o	Optimize application
 o	Set proper requests/limits
 	Use HPA or VPA depending on use case
 
-
-Frequent Pod Evictions 
+  
+**Frequent Pod Evictions **
 Pods are getting evicted automatically.
 
 •	Node under pressure:
@@ -94,8 +94,8 @@ Fix:
 •	Increase node capacity
 •	Optimize resource usage
 
-
-Image Pull Error (ImagePullBackOff) 
+  
+**Image Pull Error (ImagePullBackOff) **
 Pod cannot pull image.
 
 •	Check:
@@ -105,8 +105,8 @@ o	Credentials
 Fix:
 •	Use imagePullSecrets
 
-
-Application Not Accessible in Browser 
+  
+**Application Not Accessible in Browser **
 App is deployed but not reachable?
 
 Debug Flow:
@@ -124,8 +124,8 @@ o	Check ingress rules – (Routing instructions (what to do) eg: define rules - 
 o	Check ingress controller – (Traffic manager that applies those instructions (how to do it) eg: NGINX Ingress Controller, AWS ALB Controller)
 •	Network policies (if any):
 
-
-Pods Running but Application Still Failing 
+  
+**Pods Running but Application Still Failing **
 All pods are in Running state, but the application is not working properly.
 
 Note: You understand that Running ≠ Healthy.
@@ -140,8 +140,8 @@ o	Pod may be running but not ready
 •	Check environment variables
 
 
-
-Node Not Ready 
+  
+**Node Not Ready **
 Worker node shows NotReady.
 
 •	Check node: “kubectl describe node <node>”
@@ -153,8 +153,8 @@ o	Disk pressure
 o	Restart kubelet
 o	Check system logs
 
-
-Logs Not Available After Pod Restart 
+  
+**Logs Not Available After Pod Restart **
 Logs lost after restart.
 
 •	Containers are ephemeral
