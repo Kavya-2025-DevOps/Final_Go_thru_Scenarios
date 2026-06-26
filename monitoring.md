@@ -1,10 +1,3 @@
-## K8s
-
-1. How do you identify which microservice deployment failed?  
-   "kubectl get deployments  
-    kubectl rollout status deployment/<deployment-name> "
-
-
 
 ## Monitoring
 1. How do you automate Grafana alert acknowledgment?
@@ -29,4 +22,34 @@
 
 
 
-5. 
+5. what type of alerts have configured and How ?
+
+   Alerts I configured:  
+
+      High CPU usage (e.g., >80% for 5 minutes)  
+      High memory utilization  
+      Pod in CrashLoopBackOff  
+      Pod restart count exceeds a threshold  
+      Node NotReady  
+      Disk usage above 85–90%  
+      Application downtime (service unavailable)  
+      High HTTP 5xx error rate  
+      High API response latency  
+   
+6. what type of Dashboards have you configured and How ?  
+   Kubernetes cluster health (node status, CPU, memory, disk usage)  
+   Pod and container metrics (CPU, memory, restarts, pod status)  
+   Application dashboards (request rate, response time, error rate, throughput)  
+   Infrastructure dashboards (server utilization, filesystem usage, network traffic)
+
+7. How I configured them:
+
+   Prometheus scraped metrics from Kubernetes nodes, pods, and applications using ServiceMonitors.  
+   Grafana was configured with Prometheus as the data source.  
+   I created dashboards using PromQL queries to visualize key metrics.  
+   I defined alert rules in Grafana (or Prometheus Alertmanager, depending on the environment) with thresholds and evaluation periods.  
+   I configured notification channels such as email, Slack, or Microsoft Teams so alerts were sent to the operations team when thresholds were exceeded.
+
+8. 
+   
+
